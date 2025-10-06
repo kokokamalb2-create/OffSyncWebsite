@@ -1,8 +1,180 @@
-"Page","Section","Section Description"
-"Home","Navbar",""
-"","Hero Header Section","App name ""OffSync"", short tagline ""Stay off your phone. Stay on your goals."", and a “Join Waitlist” or “Coming Soon” button."
-"","How It Works Section","Three steps: 1. Connect with friends, 2. Set app limits, 3. Stay accountable."
-"","Features List Section","Cards for key benefits: accountability, focus tracking, and friend requests."
-"","Testimonial Section","Testimonials or motivational quote about staying focused."
-"","FAQ Section","Support questions and answers or contact information for support."
-"","Footer",""
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OffSync — Stay Focused Together</title>
+  <meta name="description" content="OffSync helps friends and students stay focused by letting them set temporary app limits and keep each other accountable.">
+  <style>
+    :root{
+      --bg:#fbfdff;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#2ea6ff;
+      --accent-2:#6ee7b7;
+      --glass: rgba(255,255,255,0.7);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#f7fbff 0%,var(--bg)100%);color:#0f172a;line-height:1.45}
+    .container{max-width:1000px;margin:40px auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px}
+    h1{font-size:28px;margin:0}
+    p.lead{color:var(--muted);margin:8px 0 0}
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:center;margin-top:28px}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:0 6px 30px rgba(12,16,24,0.06)}
+    .cta{display:flex;gap:12px;margin-top:18px}
+    .btn{background:var(--accent);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600;border:none;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(46,166,255,0.15)}
+    form input, form button{width:100%}
+    input[type="email"]{padding:10px;border-radius:10px;border:1px solid #e6eef8;background:#fbfdff}
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+    .feature{padding:16px;border-radius:12px;background:linear-gradient(180deg,rgba(46,166,255,0.03),transparent)}
+    .how{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:30px;align-items:center}
+    .steps{display:flex;flex-direction:column;gap:14px}
+    .step{display:flex;gap:12px;align-items:flex-start}
+    .step .num{width:36px;height:36px;border-radius:9px;background:var(--accent);color:white;display:flex;align-items:center;justify-content:center;font-weight:700}
+    footer{margin-top:48px;padding:24px 0;color:var(--muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    .testimonials{margin-top:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .testimonial{padding:12px;border-radius:12px;background:#fbfcff;border:1px solid rgba(10,20,40,0.03)}
+    .faq{margin-top:24px}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr; }
+      .features{grid-template-columns:1fr}
+      .how{grid-template-columns:1fr}
+      .testimonials{grid-template-columns:1fr}
+    }
+    small.muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <div class="mark">OS</div>
+        <div>
+          <strong>OffSync</strong>
+          <div style="font-size:12px;color:var(--muted)">Stay focused together</div>
+        </div>
+      </div>
+      <nav>
+        <a class="btn" href="#download">Join Waitlist</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="card">
+            <h1>Stay off your phone. Stay on your goals.</h1>
+            <p class="lead">OffSync helps friends and students set temporary app limits and hold each other accountable so focus sessions actually work.</p>
+
+            <div class="cta">
+              <a class="btn" href="#download">Join Waitlist</a>
+              <a class="btn secondary" href="#how">How it works</a>
+            </div>
+
+            <div class="features" style="margin-top:20px">
+              <div class="feature">
+                <strong>Accountability</strong>
+                <div class="muted" style="color:var(--muted);font-size:13px;margin-top:8px">Invite friends to support your focus sessions.</div>
+              </div>
+              <div class="feature">
+                <strong>Quick Setup</strong>
+                <div style="color:var(--muted);font-size:13px;margin-top:8px">Pick apps, choose a duration, send a request.</div>
+              </div>
+              <div class="feature">
+                <strong>Privacy-first</strong>
+                <div style="color:var(--muted);font-size:13px;margin-top:8px">We only share what you approve — not for ads or resale.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h3>Join the waitlist</h3>
+            <p class="muted">Be the first to try OffSync. We'll email you when the app is available on TestFlight.</p>
+            <form id="waitlistForm" style="margin-top:12px">
+              <input id="email" type="email" placeholder="you@school.edu" required />
+              <div style="height:12px"></div>
+              <button class="btn" type="submit">Get on the list</button>
+              <div id="formMsg" style="margin-top:10px;font-size:13px"></div>
+            </form>
+
+            <div style="margin-top:16px;font-size:13px;color:var(--muted)">
+              <strong>Contact</strong><br/>
+              support@offsyncapp.com
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="how" class="how">
+        <div class="card">
+          <h3>How OffSync works</h3>
+          <div class="steps">
+            <div class="step"><div class="num">1</div><div><strong>Connect with friends</strong><div class="muted">Add friends you trust to help you stay focused.</div></div></div>
+            <div class="step"><div class="num">2</div><div><strong>Set app limits</strong><div class="muted">Pick the apps and duration for a focus session.</div></div></div>
+            <div class="step"><div class="num">3</div><div><strong>Stay accountable</strong><div class="muted">Your friends approve or decline — approved sessions block apps for the chosen duration.</div></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Features</h3>
+          <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+            <li>Invite & approve focus sessions with friends</li>
+            <li>Quick pick from commonly distracting apps</li>
+            <li>Encrypted sharing of session requests</li>
+            <li>Simple privacy-first controls</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="testimonials">
+        <div class="testimonial card">
+          <strong>“OffSync helped me focus for a whole study block — and I actually finished my assignment.”</strong>
+          <div class="muted" style="margin-top:8px">— Jamie, college student</div>
+        </div>
+        <div class="testimonial card">
+          <strong>“Easy to set up with friends. No drama — just focus.”</strong>
+          <div class="muted" style="margin-top:8px">— Morgan</div>
+        </div>
+      </section>
+
+      <section class="faq card">
+        <h3>FAQ</h3>
+        <p><strong>Does OffSync share my data?</strong> We only share the minimal info required for a friend to accept a session (app list and duration). We never sell data.</p>
+        <p><strong>Do I need to add an extension or special permissions?</strong> OffSync uses Apple’s Family Controls API. On iOS, you will need to grant permission for OffSync to suggest app limits.</p>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> OffSync</div>
+      <div style="text-align:right">
+        <small class="muted">Made with focus • <a href="mailto:support@offsyncapp.com">support@offsyncapp.com</a></small>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const form = document.getElementById('waitlistForm');
+    const formMsg = document.getElementById('formMsg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value.trim();
+      if (!email) return;
+      // Simple client-side "mock" — in production you'd POST to an endpoint or use Netlify Forms, etc.
+      formMsg.style.color = 'green';
+      formMsg.textContent = 'Thanks — we added you to the waitlist!';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
